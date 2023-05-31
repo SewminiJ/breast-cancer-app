@@ -1,16 +1,30 @@
 import { Index } from '@/modules/home/Index'
-import { LoadingScreen } from '@/modules/shared/LoadingScreen'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export default function Home(){
-    const[isLoading, setIsLoading] = useState(false);
+export default function Home() {
+    const [backendData, setBackendData] = useState(null);
 
+    useEffect(() => {
+        fetchData();
+    }, []);
 
-    if(isLoading){
-        return <LoadingScreen />
-    }
-        return (
-        <div>  
+    const fetchData = async () => {
+        try {
+            const response = await fetch('http://localhost:5000/api/data');
+            const data = await response.json();
+            setBackendData(data);
+            console.log(111, data)
+        } catch (error) {
+            console.error('Error fetching data:', error);
+        }
+    };
+    return (
+        <div>
+            {/* {backendData ? (
+                <p>{backendData.message}</p>
+            ) : (
+                <p>Loading...</p>
+            )} */}
             <Index />
         </div>
     )

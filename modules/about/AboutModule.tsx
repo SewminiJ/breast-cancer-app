@@ -6,10 +6,10 @@ export const AboutModule = () => {
     return(
         <>
             <div 
-                className="bg-[#FE006B] h-60 w-60 absolute top-48 left-60 rounded-full blur-[250px] z-10"
+                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] z-10"
             />
             <Image 
-                className="absolute bottom-0 right-0 z-10"
+                className="fixed bottom-0 right-0 z-10"
                 src={"/images/bottom-right.png"} 
                 alt={"heart"} 
                 width={300} 
@@ -28,7 +28,7 @@ export const AboutModule = () => {
                         height={1200}
                     />
                     <div
-                        className="flex items-center justify-center flex-col"
+                        className="flex items-center justify-center flex-col -mt-[80px]"
                     >
                         <div
                             className="text-bold"
@@ -40,7 +40,7 @@ export const AboutModule = () => {
                                 </Link> <span className="text-[#353535]">for more info</span>
                         </div>
                         <div
-                            className="flex items-center justify-between w-60 mt-8"
+                            className="flex items-center justify-between w-60 mt-1"
                         >
                             <Link href={"/"}>
                                 <Image 
@@ -69,7 +69,7 @@ export const AboutModule = () => {
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="z-40">
                     <h1 className="text-3xl uppercase text-bold tracking-wider text-[#FF8C8C] mb-8">how to aware from <br /> <span className="text-8xl ml-14 mr-10 mt-8 drop-shadow-md shadow-black">breast</span> <span>cancer?</span></h1>
                     <div className="mb-16">
                         <p className="mb-4 text-xl text-[#343434] text-semibold">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut eu sem integer </p>

@@ -1,6 +1,10 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-}
-
-module.exports = nextConfig
+module.exports = {
+  async rewrites() {
+    return [
+      {
+        source: '/api/data',
+        destination: 'http://localhost:5000/api/data', // Update with your Flask backend URL
+      },
+    ];
+  },
+};

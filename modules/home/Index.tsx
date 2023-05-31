@@ -10,7 +10,7 @@ export const Index = () => {
                 className="bg-[#FE006B] h-60 w-60 absolute top-48 right-60 rounded-full blur-[250px] z-10"
             />
             <div
-                className="width-full max-w-[1400px] h-screen m-auto p-4 flex items-center justify-between"
+                className="width-full max-w-[1200px] h-screen m-auto p-4 flex items-center justify-between"
             >
                 <div className="z-20">
                     <div
@@ -61,7 +61,7 @@ export const Index = () => {
                     <Image 
                         src={"/images/woman1.png"} 
                         alt={"woman-checking-breast"} 
-                        width={400} 
+                        width={300} 
                         height={400}
                     />
                 </div>

@@ -6,13 +6,13 @@ export const CheckMeModule = () => {
     return(
         <>
             <div 
-                className="bg-[#FE006B] h-60 w-60 absolute top-48 left-60 rounded-full blur-[250px] z-10"
+                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] z-10"
             />
             <div 
-                className="bg-[#FE006B] h-60 w-60 absolute bottom-48 right-60 rounded-full blur-[250px] z-10"
+                className="bg-[#FE006B] h-60 w-60 fixed bottom-48 right-60 rounded-full blur-[250px] z-10"
             />
             <div
-                className="width-full max-w-[1600px] h-screen m-auto p-4 flex flex-col z-20 justify-center "    
+                className="width-full max-w-[1200px] h-screen m-auto p-4 flex flex-col z-20 justify-between pt-[100px]"  
             >
                 <h1
                     className="text-[#1678F2] text-5xl text-bold mb-6"
@@ -46,10 +46,11 @@ export const CheckMeModule = () => {
                     </form>
                     <div>
                     <Image 
+                        className="ml-8"
                         src={"/images/picture1.png"} 
                         alt={"breast"} 
-                        width={400} 
-                        height={400}
+                        width={350} 
+                        height={350}
                     />
                     </div>
                 </div>

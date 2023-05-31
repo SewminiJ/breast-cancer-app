@@ -62,9 +62,9 @@ export const    SignInModule = () => {
     return(
         <>
             <div 
-                className="bg-[#FE006B] h-60 w-60 absolute top-48 left-60 rounded-full blur-[250px] z-10"
+                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] z-10"
             />
-            <div className="flex items-center content-between m-auto w-full h-screen max-w-[1600px]">
+            <div className="flex items-center content-between m-auto w-full h-screen max-w-[1200px] p-4">
                 <Toaster />
                 <div>
 
@@ -82,7 +82,7 @@ export const    SignInModule = () => {
                     width={600} 
                     height={600}
                 />
-                </div>
+                </div >
                 <div>
                     <div
                         className="w-[400px] h-auto border-2 border-[#0ea5e9] rounded-md p-8 flex flex-col items-center justify-center" 
@@ -118,12 +118,12 @@ export const    SignInModule = () => {
                             <br />
 
                             <LoadingButton
-                            className="bg-sky-500 shadow font-medium rounded-md text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
-                            fullWidth
-                            size="large"
-                            type="submit"
-                            variant="contained"
-                            loading={isLoading}
+                                className="bg-sky-500 shadow font-medium rounded-md text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
+                                fullWidth
+                                size="large"
+                                type="submit"
+                                variant="contained"
+                                loading={isLoading}
                             >
                             Login
                             </LoadingButton>

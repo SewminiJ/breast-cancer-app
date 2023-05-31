@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const Navbar = () => {
     return(
-        <div className="flex items-center justify-between w-full px-4 py-2 bg-tranparent h-[60px] z-60 fixed bg-white/80 shadow-md">
+        <div className="flex items-center justify-between w-full px-4 py-2 bg-tranparent h-[60px] z-60 fixed bg-white/80 shadow-md z-40">
             <div className='flex cursor-pointer w-1/3'>
                 <Image 
                 className='mr-4'

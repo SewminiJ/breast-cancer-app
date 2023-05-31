@@ -117,7 +117,7 @@ export const ContactModule = () => {
                                         <h1 className="text-[#1678F2] text-bold text-lg mb-6">Contact US</h1>
                                     </li>
                                     <li>
-                                        <p className="mb-3 text-semibold"><MailOutlineIcon className="text-[#1678F2] mr-2"/> contact@healtyme.com</p>
+                                        <p className="mb-3 text-semibold"><MailOutlineIcon className="text-[#1678F2] mr-2"/> contact@healthyme.com</p>
                                         <p className="mb-3 text-semibold"><LocalPhoneOutlinedIcon className="text-[#1678F2] mr-2"/>(414) 687 - 5892</p>
                                         <p className="mb-3 text-semibold"><LocationOnOutlinedIcon className="text-[#1678F2] mr-2"/>Address</p>
                                     </li>
