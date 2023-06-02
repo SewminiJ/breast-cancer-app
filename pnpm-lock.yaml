@@ -40,6 +40,9 @@ dependencies:
   firebase:
     specifier: ^9.22.1
     version: 9.22.1
+  firebase-admin:
+    specifier: ^11.9.0
+    version: 11.9.0
   jotai:
     specifier: ^2.1.0
     version: 2.1.0(react@18.2.0)
@@ -51,7 +54,7 @@ dependencies:
     version: 4.22.1(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)
   next-firebase-auth:
     specifier: ^0.15.0
-    version: 0.15.0(firebase-admin@11.8.0)(firebase@9.22.1)(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)
+    version: 0.15.0(firebase-admin@11.9.0)(firebase@9.22.1)(next@13.3.4)(react-dom@18.2.0)(react@18.2.0)
   postcss:
     specifier: 8.4.23
     version: 8.4.23
@@ -79,6 +82,9 @@ dependencies:
   typescript:
     specifier: 5.0.4
     version: 5.0.4
+  zustand:
+    specifier: ^4.3.8
+    version: 4.3.8(react@18.2.0)
 
 packages:
 
@@ -2824,8 +2830,8 @@ packages:
       path-exists: 4.0.0
     dev: false
 
-  /firebase-admin@11.8.0:
-    resolution: {integrity: sha512-RxO0wWDnuqVikXExhVjnhVaaXpziKCad4D1rOX5c1WJdk1jAu9hfE4rbrFKZQZgF1okZS04kgCBIFJro7xn8NQ==}
+  /firebase-admin@11.9.0:
+    resolution: {integrity: sha512-My7qrInVZFmImX8aTulrp9kgY6d88Wn+ie8UIXKzZ3SJqQQhDwFT7Q3pgQXK9RfdsUtcxJJ3rCK7MWBm4GGtuw==}
     engines: {node: '>=14'}
     dependencies:
       '@fastify/busboy': 1.2.1
@@ -3966,7 +3972,7 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /next-firebase-auth@0.15.0(firebase-admin@11.8.0)(firebase@9.22.1)(next@13.3.4)(react-dom@18.2.0)(react@18.2.0):
+  /next-firebase-auth@0.15.0(firebase-admin@11.9.0)(firebase@9.22.1)(next@13.3.4)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-N7/HLXCgu2D8vOI5RzQ0qsGoA+0aiX73pBr05srBphapPzlxW6+B9FZrtqSce51XrB5YAE+iLBNugI+T5aNN3w==}
     peerDependencies:
       firebase: '>=7.0.0 <9'
@@ -3977,7 +3983,7 @@ packages:
     dependencies:
       cookies: 0.8.0
       firebase: 9.22.1
-      firebase-admin: 11.8.0
+      firebase-admin: 11.9.0
       hoist-non-react-statics: 3.3.2
       next: 13.3.4(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
@@ -5183,6 +5189,14 @@ packages:
       punycode: 2.3.0
     dev: false
 
+  /use-sync-external-store@1.2.0(react@18.2.0):
+    resolution: {integrity: sha512-eEgnFxGQ1Ife9bzYs6VLi8/4X6CObHMw9Qr9tPY43iKwsPw8xE8+EFsf/2cFZ5S3esXgpWgtSCtLNS41F+sKPA==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /util-deprecate@1.0.2:
     resolution: {integrity: sha512-EPD5q1uXyFxJpCrLnCc1nHnq3gOa6DZBocAIiI2TaSCA7VCJ1UJDMagCzIkXNsUYfD1daK//LTEQ8xiIbrHtcw==}
     dev: false
@@ -5346,4 +5360,20 @@ packages:
   /yocto-queue@0.1.0:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
+    dev: false
+
+  /zustand@4.3.8(react@18.2.0):
+    resolution: {integrity: sha512-4h28KCkHg5ii/wcFFJ5Fp+k1J3gJoasaIbppdgZFO4BPJnsNxL0mQXBSFgOgAdCdBj35aDTPvdAJReTMntFPGg==}
+    engines: {node: '>=12.7.0'}
+    peerDependencies:
+      immer: '>=9.0'
+      react: '>=16.8'
+    peerDependenciesMeta:
+      immer:
+        optional: true
+      react:
+        optional: true
+    dependencies:
+      react: 18.2.0
+      use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false

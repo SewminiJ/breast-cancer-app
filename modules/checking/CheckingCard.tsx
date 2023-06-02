@@ -29,7 +29,9 @@ export const CheckingCard = ({title, description, image, link, alt}: CheckingCar
                         width={100}     
                         height={100}
                     />
-                    <h1 className="text-2xl ml-4">{title}</h1>
+                    <div className='w-full text-center      '>
+                        <h1 className="text-2xl">{title}</h1>
+                    </div>
                 </div>
                 <div className="bg-gradient-to-b from-[#FFBEBE] to-white p-4 text-center">
                     <p className="text-[#343434] text-lg max-h-54">
