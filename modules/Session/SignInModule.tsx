@@ -65,19 +65,19 @@ export const SignInModule = () => {
             <div
                 className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] z-10"
             />
-            <div className="flex items-center content-between m-auto w-full h-screen max-w-[1200px] p-4">
+            <div className="flex-col lg:flex-row flex items-center content-center lg:content-between m-auto w-full h-screen max-w-[1200px] p-4">
                 <Toaster />
                 <div>
 
                     <h1
-                        className="text-6xl text-bold mb-16 leading-snug"
+                        className="text-4xl lg:text-6xl text-bold mb-4 lg:mb-16 leading-snug mt-16 lg:mt-0"
                     >
                         Sign In to<br />get your Predictions<br /></h1>
-                    <p className="text-xl text-medium">If you don't have an account <br /> you can <Link href="/signUp" className="text-[#1E44FF] text-bold">Register here!</Link></p>
+                    <p className="text-md lg:text-xl text-medium">If you don't have an account <br /> you can <Link href="/signUp" className="text-[#1E44FF] text-bold">Register here!</Link></p>
                 </div>
                 <div>
                     <Image
-                        className="px-4"
+                        className="px-4 hidden lg:block"
                         src={"/images/woman4.png"}
                         alt={"google-button"}
                         width={600}
@@ -86,7 +86,7 @@ export const SignInModule = () => {
                 </div >
                 <div>
                     <div
-                        className="w-[400px] h-auto border-2 border-[#0ea5e9] rounded-md p-8 flex flex-col items-center justify-center"
+                        className="mt-8 lg:mt-0 w-[400px] h-auto border-2 border-[#0ea5e9] rounded-md p-8 flex flex-col items-center justify-center"
                     >
                         <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
                             <Stack spacing={3} className="w-full">

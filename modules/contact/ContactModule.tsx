@@ -8,10 +8,10 @@ export const ContactModule = () => {
     return(
         <>
             <div 
-                className="bg-[#FE006B] h-60 w-60 absolute top-48 left-60 rounded-full blur-[250px] z-10"
+                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] z-10"
             />
             <div 
-                className="bg-[#FE006B] h-60 w-60 absolute bottom-48 right-60 rounded-full blur-[250px] z-10"
+                className="bg-[#FE006B] h-60 w-60 fixed bottom-48 right-60 rounded-full blur-[250px] z-10"
             />
 
             <div
@@ -29,10 +29,10 @@ export const ContactModule = () => {
                     className="w-full bg-white p-8 z-20 rounded-t-3xl"
                 >
                     <div
-                        className="flex items-start justify-between"
+                        className="flex items-start justify-between flex-col md:flex-row"
                     >
                         <div
-                            className="w-1/4 flex items-center flex-col"
+                            className="w-full md:w-1/4 flex items-center flex-col"
                         >
                             <div>
                             <Image 
@@ -49,7 +49,7 @@ export const ContactModule = () => {
                             />
                             </div>
                             <div
-                                className="flex items-center justify-between w-40 mt-8 text-start"
+                                className="flex items-center justify-between w-40 mt-8 text-start mb-6"
                             >
                                 <Link href={"/"}>
                                     <Image 
@@ -78,14 +78,14 @@ export const ContactModule = () => {
                             </div>
                         </div>
                         <div
-                            className="w-3/4"
+                            className="w-full md:w-3/4 text-sm md:text-md flex"
                         >
                             <ul
-                                className="flex items-start w-full justify-center text-[#4F555A]"
+                                className="flex flex-col md:flex-row items-center md:items-start w-full justify-center text-[#4F555A]"
                             >
                                 <div className="w-72">
                                     <li>
-                                        <h1 className="text-[#1678F2] text-bold text-lg mb-6">Product</h1>
+                                        <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Product</h1>
                                     </li>
                                     <li>
                                         <p className="mb-3 text-semibold">Features</p>
@@ -94,7 +94,7 @@ export const ContactModule = () => {
                                 </div>
                                 <div className="w-72">
                                     <li>
-                                        <h1 className="text-[#1678F2] text-bold text-lg mb-6">Company</h1>
+                                        <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Company</h1>
                                     </li>
                                     <li>
                                         <p className="mb-3 text-semibold">About</p>
@@ -104,7 +104,7 @@ export const ContactModule = () => {
                                 </div>
                                 <div className="w-72">
                                     <li>
-                                        <h1 className="text-[#1678F2] text-bold text-lg mb-6">Support</h1>
+                                        <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Support</h1>
                                     </li>
                                     <li>
                                         <p className="mb-3 text-semibold">Getting Started</p>
@@ -114,7 +114,7 @@ export const ContactModule = () => {
                                 </div>
                                 <div className="w-72">
                                     <li>
-                                        <h1 className="text-[#1678F2] text-bold text-lg mb-6">Contact US</h1>
+                                        <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Contact US</h1>
                                     </li>
                                     <li>
                                         <p className="mb-3 text-semibold"><MailOutlineIcon className="text-[#1678F2] mr-2"/> contact@healthyme.com</p>
@@ -127,19 +127,19 @@ export const ContactModule = () => {
                     </div>
                     <hr className="my-4"/>
                     <footer
-                        className="flex items-center justify-between text-[#6F6C90] text-md w-full"
+                        className="flex flex-col text-sm md:flex-row items-center justify-between text-[#6F6C90] md:text-md w-full"
                     >
                         <div>
                             <p>Copyright @ 2023</p>
                         </div>
                         <div>
-                            <p>
+                            <p className="flex flex-col md:flex-row items-center">
                                 All Rights Reserved 
-                                |
+                                <span className="hidden md:flex">|</span>
                                 <span className="text-[#FF79C1]">
                                     <Link href={"/"}> Terms and Conditions </Link>
                                 </span>
-                                |
+                                <span className="hidden md:flex">|</span>
                                 <span className="text-[#FF79C1]">
                                     <Link href={"/"}> Privacy Policy</Link>
                                 </span>

@@ -4,7 +4,7 @@ import { InputProps, TextField } from '@mui/material';
 interface InputFieldProps {
     label?: string;
     name: string;
-    control: Control<any>;
+    control?: Control<any>;
     required?: boolean;
     disabled?: boolean;
     fullWidth?: boolean;
