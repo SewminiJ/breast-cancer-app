@@ -1,4 +1,5 @@
 import { FormControl, InputLabel, Select, MenuItem, InputProps } from "@mui/material"
+import { platform } from "os";
 import { Control, Controller } from "react-hook-form";
 
 interface DropdownFieldProps{
@@ -11,25 +12,10 @@ interface DropdownFieldProps{
     startAdornment?: InputProps['startAdornment'];
     type?: InputProps['type'];
     options: string[];
+    placeholder?: string;
 }
-export const DropdownField = ({label, name, control, required, disabled, fullWidth, startAdornment, type, options}: DropdownFieldProps) => {
+export const DropdownField = ({label, name, control, required, disabled, fullWidth, startAdornment, type, placeholder, options}: DropdownFieldProps) => {
     return(
-        // <FormControl fullWidth>
-        //     <InputLabel id="demo-simple-select-label">{label}</InputLabel>
-        //     <Select
-        //         labelId="demo-simple-select-label"
-        //         id="demo-simple-select"
-        //         // value={age}
-        //         label=""
-        //         // onChange={handleChange}
-        //     >
-        //         {names.map((name) => {
-        //             return(
-        //                 <MenuItem key={name} value={name}>{name}</MenuItem>
-        //             )
-        //         })}
-        //     </Select>
-        // </FormControl>
         <FormControl fullWidth size="small">
             <Controller 
                 control={control}
@@ -42,6 +28,7 @@ export const DropdownField = ({label, name, control, required, disabled, fullWid
                         inputProps={{
                             startAdornment
                         }}
+                        placeholder={placeholder}
                         fullWidth={fullWidth}
                         variant="outlined"
                         disabled={disabled}

@@ -30,7 +30,7 @@
         "**/*.tsx",
         "context/AuthContext.js",
         "hooks/fetchData.js"
-    ],
+, "pages/api/predict.js"    ],
     "exclude": [
         "node_modules"
     ]

@@ -63,7 +63,7 @@ export const SignInModule = () => {
     return (
         <>
             <div
-                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] z-10"
+                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] -z-10"
             />
             <div className="flex-col lg:flex-row flex items-center content-center lg:content-between m-auto w-full h-screen max-w-[1200px] p-4">
                 <Toaster />

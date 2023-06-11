@@ -2,9 +2,15 @@ import { FormButton } from "@/components/FormButton"
 import { Button } from "@mui/material"
 import Image from "next/image"
 import Link from "next/link"
+import { useRouter } from "next/router"
 
 export const ResultsModule = () => {
-    const prediction = 87.74
+
+    const router = useRouter();
+  const { prediction } = router.query;
+
+  console.log(888, prediction);
+    // const prediction = 87.74
     const date = 10
     const month = "September"
     const year = 2027
@@ -33,7 +39,7 @@ export const ResultsModule = () => {
             />
 
             <div
-                className="width-full max-w-[1600px] h-screen m-auto p-4 flex flex-col justify-center items-center"
+                className="width-full m-auto p-4 flex flex-col justify-center items-center"
             >
                 <Image 
                     className="w-44 md:w-96"
@@ -43,12 +49,16 @@ export const ResultsModule = () => {
                     height={300}
                 />
                 <div className="text-center">
+                <div>
+                    <h1>Results</h1>
+                    <p>Predicted Value: {prediction}</p>
+                    </div>
                     <h1
                         className="text-[#343434] text-2xl text-bold mb-2 mt-16"
                     >There will be :</h1>
                     <h1
                         className="text-[#ff8c8c] text-8xl md:text-[150px] text-bold"
-                    >{prediction}%</h1>
+                    >prediction value%</h1>
                     <h1
                         className="text-[#343434] text-md md:text-2xl text-bold mb-2 flex justify-center"
                     >Chance of having breast cancer on &nbsp;<p>{date}<sup>th</sup> of </p> &nbsp; <p> {month}, </p> <p>{year}</p></h1>
