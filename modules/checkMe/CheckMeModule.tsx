@@ -215,7 +215,7 @@ export const CheckMeModule = () => {
                 </div>
                 <div className="w-full flex text-bold text-lg items-center mb-8">
                     <h1 className="w-4/5">Enter area se value: </h1>
-                    <input type="number" name="smoothness_se" min={0} pattern="^\d*(\.\d{0,2})?$"  value={inputValues.smoothness_se} onChange={handleInputChange} />
+                    <input type="number" name="area_se" min={0} pattern="^\d*(\.\d{0,2})?$"  value={inputValues.area_se} onChange={handleInputChange} />
                 </div>
                 <div className="w-full flex text-bold text-lg items-center mb-8">
                     <h1 className="w-4/5">Enter smoothness se value: </h1>
