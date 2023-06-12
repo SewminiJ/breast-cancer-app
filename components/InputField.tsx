@@ -10,6 +10,7 @@ interface InputFieldProps {
     fullWidth?: boolean;
     startAdornment?: InputProps['startAdornment'];
     type?: InputProps['type'];
+    error?: string;
 }
 
 export function InputField({
@@ -21,9 +22,12 @@ export function InputField({
     fullWidth,
     startAdornment,
     type,
+    error
 }: InputFieldProps) {
     return (
-        <Controller
+        <div className='relative mt-2'>
+            <p className='text-xs text-red-500 mb-1 absolute -top-5'>{error}</p>
+            <Controller
             control={control}
             name={name}
             render={({ field }) => (
@@ -42,5 +46,6 @@ export function InputField({
                 />
             )}
         />
+        </div>
     );
 }

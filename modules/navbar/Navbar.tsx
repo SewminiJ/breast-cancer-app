@@ -15,7 +15,7 @@ export const Navbar = () => {
 
     return (
         <>
-            <div className="flex items-center justify-between w-full px-4 py-1 bg-white h-[60px] z-60 fixed shadow-md z-100">
+            <div className="nav flex items-center justify-between w-full px-4 py-1 bg-white h-[60px] z-60 fixed shadow-md">
                 <div className='flex cursor-pointer w-1/3'>
                     <Image
                         className='mr-4'

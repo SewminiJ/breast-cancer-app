@@ -1,16 +1,12 @@
 import { FormButton } from "@/components/FormButton"
 import { Button } from "@mui/material"
 import Image from "next/image"
-import Link from "next/link"
 import { useRouter } from "next/router"
 
 export const ResultsModule = () => {
 
     const router = useRouter();
-  const { prediction } = router.query;
-
-  console.log(888, prediction);
-    // const prediction = 87.74
+    const { prediction } = router.query;
     const date = 10
     const month = "September"
     const year = 2027

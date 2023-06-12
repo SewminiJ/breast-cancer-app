@@ -33,3 +33,18 @@ input{
 input:focus{
   outline: none;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.checkbox{
+  padding: 0 !important;
+  width: 10% !important;
+}
+
+.nav{
+  z-index: 100;
+}

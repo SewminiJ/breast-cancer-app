@@ -1,4 +1,3 @@
-import { Button } from "@mui/material"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -29,12 +28,11 @@ export const AboutModule = () => {
             "text": "Support breast cancer organizations: Consider participating in or supporting breast cancer awareness campaigns and events organized by reputable organizations. They often provide valuable resources, information, and support for those affected by breast cancer."
         }
     ]
-
-    console.log(777, awarnessData[0].text)
+    
     return (
         <>
             <div
-                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px]"
+                className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] -z-10"
             />
             <Image
                 className="fixed bottom-0 right-0 -z-10"
@@ -97,7 +95,7 @@ export const AboutModule = () => {
                         </div>
                     </div>
                 </div>
-                <div className="-z-10">
+                <div>
                     <h1 className="text-xl lg:text-3xl uppercase text-bold tracking-wider text-[#FF8C8C] mb-8 mt-16">how to aware from <br />
                         <span className="text-6xl lg:text-8xl ml-14 mr-10 mt-8 drop-shadow-md shadow-black">breast</span>
                         <span>cancer?</span>

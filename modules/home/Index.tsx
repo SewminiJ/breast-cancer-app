@@ -1,6 +1,16 @@
+import axios from "axios";
 import Image from "next/image"
+import { useRouter } from "next/router"
+import { useState } from "react";
 
 export const Index = () => {
+    const [searchText, setSearchText] = useState("");
+
+    const handleSearch = () => {
+        const url = `https://www.google.com/search?q=${encodeURIComponent(searchText)}`;
+        window.open(url, "_blank");
+      };
+      
     return(
         <>
             <div 
@@ -44,16 +54,22 @@ export const Index = () => {
                         </p>
                     </div>
                     <div>
-                        <div
+                        <div 
                             className="rounded-full flex bg-white items-center justify-between p-1 px-3 md:px-3"    
                         >
-                            <p className="text-[#4F4E4E] text-opacity-80 text-sm md:text-md ">Search Here...</p>
-                            <Image 
-                                src={"/images/search.png"} 
-                                alt={"woman-checking-breast"} 
-                                width={40} 
-                                height={40}
-                            />
+                            <input 
+                                type="text" 
+                                value={searchText}
+                                onChange={(e) => setSearchText(e.target.value)}
+                                className="text-[#4F4E4E] text-opacity-80 text-sm md:text-md cursor-pointer" placeholder="Search Here..." />
+                            <button type="submit" onClick={handleSearch}>
+                                <Image 
+                                    src={"/images/search.png"} 
+                                    alt={"woman-checking-breast"} 
+                                    width={40} 
+                                    height={40}
+                                />
+                            </button>
                         </div>
                     </div>
                 </div>

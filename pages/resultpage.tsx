@@ -42,42 +42,7 @@ export default function ResultPage(){
       
     return(
         <div className="flex items-center justify-center flex-col">
-            {/* <div className="mt-24 flex flex-col">
-                <input className="mb-2 "type="text" placeholder="diagnosis" />
-                <input className="mb-2"type="text" placeholder="radius Mean" />
-                <input className="mb-2"type="text" placeholder="texture mean" />
-                <input className="mb-2"type="text" placeholder="premeter mean" />
-                <input className="mb-2"type="text" placeholder="area mean" />
-                <input className="mb-2"type="text" placeholder="smoothness mean" />
-                <input className="mb-2"type="text" placeholder="compactness mean" />
-                <input className="mb-2"type="text" placeholder="concavity mean" />
-                <input className="mb-2"type="text" placeholder="concave points mean" />
-                <input className="mb-2"type="text" placeholder="symmetry mean" />
-                <input className="mb-2"type="text" placeholder="fractal dimension mean" />
-                <input className="mb-2"type="text" placeholder="radius se" />
-                <input className="mb-2"type="text" placeholder="texture se" />
-                <input className="mb-2"type="text" placeholder="perimeter se" />
-                <input className="mb-2"type="text" placeholder="area se" />
-                <input className="mb-2"type="text" placeholder="smoothness se" />
-                <input className="mb-2"type="text" placeholder="compactness se" />
-                <input className="mb-2"type="text" placeholder="concativy se" />
-                <input className="mb-2"type="text" placeholder="concave points se" />
-                <input className="mb-2"type="text" placeholder="symmetry se" />
-                <input className="mb-2"type="text" placeholder="fractal dimension se" />
-                <input className="mb-2"type="text" placeholder="radius worst" />
-                <input className="mb-2"type="text" placeholder="texture worst" />
-                <input className="mb-2"type="text" placeholder="perimeter worst" />
-                <input className="mb-2"type="text" placeholder="area worst" />
-                <input className="mb-2"type="text" placeholder="smoothness worst" />
-                <input className="mb-2"type="text" placeholder="compactness worst" />
-                <input className="mb-2"type="text" placeholder="concavity worst" />
-                <input className="mb-2"type="text" placeholder="concave points worst" />
-                <input className="mb-2"type="text" placeholder="symmetry worst" />
-                <input className="mb-2"type="text" placeholder="fractal dimension worst" />
-                <button type="submit">Calculate</button>
-            </div> */}
-
-            <div className="mt-24">
+              <div className="mt-24">
                 <h1>Contact Page</h1>
                 <form onSubmit={handleSubmit}>
                     <div>

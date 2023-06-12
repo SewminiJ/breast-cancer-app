@@ -20,7 +20,7 @@ export const MobileNav = (props) => {
 
     if(!_document) return null
     return ReactDom.createPortal(
-        <div className="fixed inset-0 bg-white text-slate-900 flex flex-col text-lg sm:text-xl z-10 lg  :hidden">
+        <div className="fixed inset-0 bg-white text-slate-900 flex flex-col text-lg sm:text-xl z-100 lg  :hidden">
             <div className="h-[60px] flex items-center justify-between shadow-md border-slate-900 p-4">
                 <div className='flex cursor-pointer w-1/3'>
                     <Image
@@ -39,11 +39,6 @@ export const MobileNav = (props) => {
                 </div>
                 <CloseIcon onClick={() => setOpen(false)} className="fa-solid fa-xmark duration-300 hover:rotate-90 cursor-pointer text-lg sm:text-3xl" />
             </div>
-            {/* <div onClick={() => {
-                setOpen(false)
-            }} className="p-4 flex flex-col gap-3">
-                <h2 className="select-none duration-300 hover:pl-2 cursor-pointer">Logout</h2>
-            </div> */}
             <div>
                 <div className="p-2">
                 {currentUser ? (

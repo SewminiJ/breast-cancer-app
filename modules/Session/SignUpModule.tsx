@@ -5,15 +5,16 @@ import Link from "next/link";
 import { useAuth } from "@/context/AuthContext";
 import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "@/config/firebase/firebaseConfig";
-import { FormButton } from "@/components/FormButton";
 import { GoogleButton } from "@/components/GoogleButton";
 import { InputField } from "@/components/InputField";
 import { Stack } from "@mui/material";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import Image from "next/image";
 import { LoadingButton } from "@mui/lab";
+import * as Yup from 'yup';
+import {yupResolver} from '@hookform/resolvers/yup';
 
-type LoginFormInputs = {
+type RegisterFormInputs = {
   email: string;
   password: string;
   confirmPassword: string;
@@ -25,13 +26,34 @@ type LoginFormInputs = {
 };
 
 export const SignUpModule = () => {
-  const { handleSubmit, control } = useForm<LoginFormInputs>();
+  const validationSchema = Yup.object().shape({
+    email: Yup.string().email('Invalid email').required('Email is required'),
+    password: Yup.string().required("Password is required").min(8, "Password must be at least 8 characters"),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .required('Confirm password is required'),
+    dob: Yup.string().required('Date of Birth is required'),
+    gender: Yup.string().required('Gender is required'),
+    mln: Yup.string().required('Medical License Number is required'),
+    contact: Yup.string().required('Contact Number is required'),
+    spec: Yup.string().required('Specialization is required'),
+  });
+
+  
+  const { handleSubmit, control, formState: {errors} } = useForm<RegisterFormInputs>({
+    resolver: yupResolver(validationSchema),
+  });  
 
   const { signup } = useAuth();
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
+  const [checked, setChecked] = useState(false);
 
-  const handleSignUp = async (data: LoginFormInputs) => {
+  const handleCheck = () => {
+    setChecked(!checked);
+  }
+
+  const handleSignUp = async (data: RegisterFormInputs) => {
     const {
       email,
       password,
@@ -66,31 +88,10 @@ export const SignUpModule = () => {
     } catch (error) {
       setIsLoading(false);
       console.error("Error signing up:", error);
-      // Handle error
     }
   };
 
-//   async function loginFunction(email: string, password: string) {
-//     if (!email || !password) {
-//         toast.error('Something went wrong. Please try again.');
-//         return
-//     }
-//     if (isLoggingIn) {
-//         try {
-//             setIsLoading(true);
-//             await login(email, password)
-//             setIsLoading(false);
-//             router.push('/');
-//         } catch (err) {
-//             setIsLoading(false);
-//             toast.error('Something went wrong. Please try again.');
-//         }
-//         return
-//     }
-// }
-
-  const onSubmit = (data: LoginFormInputs) => {
-    console.log("data", data);
+  const onSubmit = (data: RegisterFormInputs) => {
     handleSignUp(data);
     
   };
@@ -120,19 +121,17 @@ export const SignUpModule = () => {
       await setDoc(userRef, userData);
     } catch (error) {
       console.error("Error creating user in Firestore:", error);
-      // Handle error
     }
   };
 
   const googleSignIn = async () => {
     const { user } = await signInWithPopup(auth, new GoogleAuthProvider());
-    const { refreshToken, providerData } = user;
     router.push("/");
-  };
+  };  
 
   return (
     <>
-      <div className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] -z-10" />
+      <div className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] -z-20" />
       <div className="flex flex-col lg:flex-row items-center content-between m-auto w-full h-screen max-w-[1600px] p-8">
         <div>
           <h1 className="text-4xl lg:text-6xl text-bold mb-4 lg:mb-16 leading-snug mt-16 lg:mt-0">
@@ -164,14 +163,16 @@ export const SignUpModule = () => {
                   name="email"
                   fullWidth
                   label="Email Address"
+                  error={errors.email?.message}
                 />
-                <div className="flex align-center justify-between">
-                  <div className="mr-4">
+                <div className="flex align-center flex-col justify-between">
+                  <div className="mb-4">
                     <InputField
                       control={control}
                       name="password"
                       fullWidth
                       label="Password"
+                      error={errors.password?.message}
                     />
                   </div>
                   <div>
@@ -180,6 +181,7 @@ export const SignUpModule = () => {
                       name="confirmPassword"
                       fullWidth
                       label="Confirm Password"
+                      error={errors.confirmPassword?.message}
                     />
                   </div>
                 </div>
@@ -190,6 +192,7 @@ export const SignUpModule = () => {
                       name="dob"
                       fullWidth
                       label="Date of Birth"
+                      error={errors.dob?.message}
                     />
                   </div>
                   <InputField
@@ -197,6 +200,7 @@ export const SignUpModule = () => {
                     name="gender"
                     fullWidth
                     label="Gender"
+                    error={errors.gender?.message}
                   />
                 </div>
                 <InputField
@@ -204,27 +208,30 @@ export const SignUpModule = () => {
                   name="mln"
                   fullWidth
                   label="Medical License Number"
+                  error={errors.mln?.message}
                 />
                 <InputField
                   control={control}
                   name="contact"
                   fullWidth
                   label="Contact Number"
+                  error={errors.contact?.message}
                 />
                 <InputField
                   control={control}
                   name="spec"
                   fullWidth
                   label="Specialization"
+                  error={errors.spec?.message}
                 />
               </Stack>
-              <div className="flex items-center">
-                <input className="mr-2" type="checkbox" name="agree" value="agree" />
-                <p className="text-[#2C2C2C] text-xs text-bold my-4">
+              <div className="flex items-center justify-normal w-full">
+                <input onClick={handleCheck} className="checkbox mr-2" type="checkbox" name="agree" value="agree" />
+                <p className="text-[#2C2C2C] text-xs text-bold my-2 w-full">
                   Agree with the Terms and Conditions
                 </p>
               </div>
-              <LoadingButton
+              {checked && <LoadingButton
                   className="bg-sky-500 shadow font-medium rounded-md text-white hover:bg-sky-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-sky-500"
                   fullWidth
                   size="large"
@@ -233,20 +240,20 @@ export const SignUpModule = () => {
                   loading={isLoading}
               >
                   Register
-              </LoadingButton>
+              </LoadingButton>}
             </form>
-            <div className="flex items-center justify-center flex-col">
-              <div className="flex items-center justify-between">
-                <hr />
-                <p className="text-[#2C2C2C] text-xs text-bold mb-4">
-                  Or continue with
-                </p>
-                <hr />
+              <div className="flex items-center justify-center flex-col mt-8">
+                <div className="flex items-center justify-between">
+                  <hr />
+                  <p className="text-[#2C2C2C] text-xs text-bold mb-4">
+                    Or continue with
+                  </p>
+                  <hr />
+                </div>
+                <div onClick={googleSignIn} className="cursor-pointer">
+                  <GoogleButton />
+                </div>
               </div>
-              <div onClick={googleSignIn} className="cursor-pointer">
-                <GoogleButton />
-              </div>
-            </div>
           </div>
         </div>
       </div>

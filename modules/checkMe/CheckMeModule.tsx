@@ -3,9 +3,11 @@ import Image from "next/image"
 import { useForm } from "react-hook-form";
 import { useState } from 'react';
 import axios from 'axios';
+import html2canvas from "html2canvas";
+import jsPDF from "jspdf";
 
 export const CheckMeModule = () => {
-    const { control } = useForm();
+  const { control } = useForm();
 
   const [inputValues, setInputValues] = useState(
     {
@@ -47,47 +49,6 @@ export const CheckMeModule = () => {
     const [month , setMonth] = useState('')
     const [year , setYear] = useState('')
 
-    // const handleMonthChange = (e) => {
-    //   const monthValue = e.target.value;
-    //   if(monthValue === 1){
-    //     setMonth('January')
-    //   }
-    //   else if(monthValue === 2){
-    //     setMonth('February')
-    //   }
-    //   else if(monthValue === 3){
-    //     setMonth('March')
-    //   }
-    //   else if(monthValue === 4){
-    //     setMonth('April')
-    //   }
-    //   else if(monthValue === 5){
-    //     setMonth('May')
-    //   }
-    //   else if(monthValue === 6){
-    //     setMonth('June')
-    //   }
-    //   else if(monthValue === 7){
-    //     setMonth('July')
-    //   }
-    //   else if(monthValue === 8){
-    //     setMonth('August')
-    //   }
-    //   else if(monthValue === 9){
-    //     setMonth('September')
-    //   }
-    //   else if(monthValue === 10){
-    //     setMonth('October')
-    //   }
-    //   else if(monthValue === 11){
-    //     setMonth('November')
-    //   }
-    //   else if(monthValue === 12){
-    //     setMonth('December')
-    //   }
-      
-    // };
-
     const handleMonthChange = (e) => {
       const monthValue = e.target.value;
       // Check if the input is a valid number
@@ -123,8 +84,23 @@ export const CheckMeModule = () => {
       }
     };
 
+    const handleCapture = () => {
+      const pageElement = document.documentElement;
+  
+      html2canvas(pageElement).then((canvas) => {
+        const screenshotDataUrl = canvas.toDataURL("image/png");
+        const pdf = new jsPDF();
+        const imageProps = pdf.getImageProperties(screenshotDataUrl);
+        const screenshotWidth = pdf.internal.pageSize.getWidth();
+        const screenshotHeight = (imageProps.height * screenshotWidth) / imageProps.width;
+  
+        pdf.addImage(screenshotDataUrl, "PNG", 0, 0, screenshotWidth, screenshotHeight);
+        pdf.save("screenshot.pdf");
+      });
+    };
+
     return (
-      <>
+      <div id="pdf-content">
         <div 
             className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] -z-10"
         />
@@ -315,17 +291,37 @@ export const CheckMeModule = () => {
           </div>
         </div>
             
-
         <div
             className="width-full flex flex-col justify-center items-center"
         >
-          <Image 
+          {
+            prediction ? ( 
+            parseInt(prediction) <= 30 ? (
+                <Image 
+                className="w-44 md:w-96"
+                src={"/images/happy.png"}
+                alt={"unhappy"}
+                width={300}
+                height={300}
+            />
+              ) : (
+              <Image 
               className="w-44 md:w-96"
               src={"/images/unhappy.png"}
+              alt={"happy"}
+              width={300}
+              height={300}
+              />
+            )) : (
+              <Image 
+              className="w-44 md:w-96"
+              src={"/images/happy.png"}
               alt={"unhappy"}
               width={300}
               height={300}
-          />
+              />
+            )
+          }
             <div className="text-center">
               <h1 className="capitalize text-3xl md:text-5xl">{patient}</h1>
               <h1
@@ -341,9 +337,9 @@ export const CheckMeModule = () => {
 
             <Button
                 className="w-full md:w-44 h-10 bg-gradient-to-r from-[#3A8EF6] to-[#6F3AFA] rounded-md p-3 font-normal flex items-center justify-center text-md">
-                <p className="text-white w-full md:w-44 capitalize">Print Results</p>
+                <p className="text-white w-full md:w-44 capitalize" onClick={handleCapture}>Print Results</p>
             </Button>
         </div>
-      </>
+      </div>
     )
 }
