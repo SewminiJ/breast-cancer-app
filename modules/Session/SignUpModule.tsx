@@ -35,7 +35,7 @@ export const SignUpModule = () => {
     dob: Yup.string().required('Date of Birth is required'),
     gender: Yup.string().required('Gender is required'),
     mln: Yup.string().required('Medical License Number is required'),
-    contact: Yup.string().required('Contact Number is required'),
+    contact: Yup.string().required('Contact Number is required').max(10, "Contact must be 10 characters"),
     spec: Yup.string().required('Specialization is required'),
   });
 
@@ -73,8 +73,6 @@ export const SignUpModule = () => {
       setIsLoading(true);
       await createUserInFirestore(
         email,
-        password,
-        confirmPassword,
         dob,
         gender,
         mln,
@@ -84,7 +82,7 @@ export const SignUpModule = () => {
       await signup(email, password);
 
       setIsLoading(false);
-      router.push("/");
+      router.push("/signIn");
     } catch (error) {
       setIsLoading(false);
       console.error("Error signing up:", error);
@@ -98,8 +96,6 @@ export const SignUpModule = () => {
 
   const createUserInFirestore = async (
     email: string,
-    password: string,
-    confirmPassword: string,
     dob: string,
     gender: string,
     mln: string,
@@ -110,8 +106,6 @@ export const SignUpModule = () => {
       const userRef = doc(db, "users", email);
       const userData = {
         email,
-        password,
-        confirmPassword,
         dob,
         gender,
         mln,
