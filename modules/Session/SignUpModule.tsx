@@ -132,7 +132,7 @@ export const SignUpModule = () => {
   return (
     <>
       <div className="bg-[#FE006B] h-60 w-60 fixed top-48 left-60 rounded-full blur-[250px] -z-20" />
-      <div className="flex flex-col lg:flex-row items-center content-between m-auto w-full h-screen max-w-[1600px] p-8">
+      <div className="flex flex-col lg:flex-row items-center content-between m-auto w-full max-w-[1200px] p-8">
         <div>
           <h1 className="text-4xl lg:text-6xl text-bold mb-4 lg:mb-16 leading-snug mt-16 lg:mt-0">
             Sign In to<br />get your Nutrients<br />
@@ -156,7 +156,7 @@ export const SignUpModule = () => {
         <div>
           <div className="w-[400px] h-auto mt-8 lg:mt-0">
           <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
-              <h1 className="text-xl lg:text-5xl text-bold mb-6">Welcome Back</h1>
+              <h1 className="text-xl lg:text-5xl text-bold mb-6 md:mt-12">Welcome Back</h1>
               <Stack spacing={3} className="w-full">
                 <InputField
                   control={control}

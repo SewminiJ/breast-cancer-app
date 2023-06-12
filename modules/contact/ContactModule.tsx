@@ -69,8 +69,8 @@ export const ContactModule = () => {
                                 </Link>
                                 <Link href={"/"}>
                                     <Image 
-                                        src={"/images/github.png"} 
-                                        alt={"github"} 
+                                        src={"/images/linkedin.png"} 
+                                        alt={"linkedin"} 
                                         width={30} 
                                         height={30}
                                     />
@@ -88,8 +88,8 @@ export const ContactModule = () => {
                                         <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Product</h1>
                                     </li>
                                     <li>
-                                        <p className="mb-3 text-semibold">Features</p>
-                                        <p className="mb-3 text-semibold">Updates</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">Features</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">Updates</p>
                                     </li>
                                 </div>
                                 <div className="w-72">
@@ -97,9 +97,9 @@ export const ContactModule = () => {
                                         <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Company</h1>
                                     </li>
                                     <li>
-                                        <p className="mb-3 text-semibold">About</p>
-                                        <p className="mb-3 text-semibold">Check Me</p>
-                                        <p className="mb-3 text-semibold">Contact Us</p>
+                                        <Link href={"/about"}><p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">About</p></Link>
+                                        <Link href={"/check"}><p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">Check Me</p></Link>
+                                        <Link href={"/contact"}><p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">Contact Us</p></Link>
                                     </li>
                                 </div>
                                 <div className="w-72">
@@ -107,9 +107,9 @@ export const ContactModule = () => {
                                         <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Support</h1>
                                     </li>
                                     <li>
-                                        <p className="mb-3 text-semibold">Getting Started</p>
-                                        <p className="mb-3 text-semibold">Help Center</p>
-                                        <p className="mb-3 text-semibold">Chat Support</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">Getting Started</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">Help Center</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300">Chat Support</p>
                                     </li>
                                 </div>
                                 <div className="w-72">
@@ -117,9 +117,9 @@ export const ContactModule = () => {
                                         <h1 className="text-[#1678F2] text-bold mb-6 text-sm md:text-lg font-bold md:font-medium">Contact US</h1>
                                     </li>
                                     <li>
-                                        <p className="mb-3 text-semibold"><MailOutlineIcon className="text-[#1678F2] mr-2"/> contact@healthyme.com</p>
-                                        <p className="mb-3 text-semibold"><LocalPhoneOutlinedIcon className="text-[#1678F2] mr-2"/>(414) 687 - 5892</p>
-                                        <p className="mb-3 text-semibold"><LocationOnOutlinedIcon className="text-[#1678F2] mr-2"/>Address</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300"><MailOutlineIcon className="text-[#1678F2] mr-2"/> contact@healthyme.com</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300"><LocalPhoneOutlinedIcon className="text-[#1678F2] mr-2"/>+94 112 369 815</p>
+                                        <p className="mb-3 text-semibold cursor-pointer hover:text-sky-500 duration-300"><LocationOnOutlinedIcon className="text-[#1678F2] mr-2"/>225/4 Castle St, Borella, Colombo 10</p>
                                     </li>
                                 </div>
                             </ul>
@@ -130,7 +130,7 @@ export const ContactModule = () => {
                         className="flex flex-col text-sm md:flex-row items-center justify-between text-[#6F6C90] md:text-md w-full"
                     >
                         <div>
-                            <p>Copyright @ 2023</p>
+                            <p>Copyright, CSDevs@2023</p>
                         </div>
                         <div>
                             <p className="flex flex-col md:flex-row items-center">

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 
 export const AboutModule = () => {
     const awarnessData = [
@@ -86,8 +87,8 @@ export const AboutModule = () => {
                             </Link>
                             <Link href={"/"}>
                                 <Image
-                                    src={"/images/github.png"}
-                                    alt={"github"}
+                                    src={"/images/linkedin.png"}
+                                    alt={"linkedin"}
                                     width={40}
                                     height={40}
                                 />
@@ -103,7 +104,7 @@ export const AboutModule = () => {
                     <div className="mb-4 lg:mb-16">
                         {
                             awarnessData.map((item, index) => (
-                                <p className="mb-4 text-md lg:text-xl text-[#343434] text-semibold" key={index}>{index + 1}{" . "}{item.text}</p>
+                                <p className="mb-4 text-md lg:text-xl text-[#343434] text-semibold" key={index}><FiberManualRecordIcon sx={{width:8}} />{" "}{item.text}</p>
                             ))
                         }
                     </div>
