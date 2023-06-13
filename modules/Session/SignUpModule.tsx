@@ -13,6 +13,14 @@ import Image from "next/image";
 import { LoadingButton } from "@mui/lab";
 import * as Yup from 'yup';
 import {yupResolver} from '@hookform/resolvers/yup';
+import IconButton from "@mui/material/IconButton";
+import { Visibility, VisibilityOff } from "@mui/icons-material";
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import { Controller } from 'react-hook-form';
+
+
 
 type RegisterFormInputs = {
   email: string;
@@ -121,7 +129,11 @@ export const SignUpModule = () => {
   const googleSignIn = async () => {
     const { user } = await signInWithPopup(auth, new GoogleAuthProvider());
     router.push("/");
-  };  
+  };
+  
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
 
   return (
     <>
@@ -161,33 +173,72 @@ export const SignUpModule = () => {
                 />
                 <div className="flex align-center flex-col justify-between">
                   <div className="mb-4">
-                    <InputField
-                      control={control}
-                      name="password"
-                      fullWidth
-                      label="Password"
-                      error={errors.password?.message}
-                    />
+                  <InputField
+                    control={control}
+                    name="password"
+                    fullWidth
+                    label="Password"
+                    error={errors.password?.message}
+                    type={showPassword ? "text" : "password"}
+                    InputProps={{
+                      endAdornment: (
+                        <IconButton
+                          onClick={() => setShowPassword(!showPassword)}
+                          edge="end"
+                          aria-label="toggle password visibility"
+                        >
+                          {showPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      ),
+                    }}
+                  />
+
                   </div>
                   <div>
-                    <InputField
-                      control={control}
-                      name="confirmPassword"
-                      fullWidth
-                      label="Confirm Password"
-                      error={errors.confirmPassword?.message}
-                    />
+                  <InputField
+                    control={control}
+                    name="confirmPassword"
+                    fullWidth
+                    label="Confirm Password"
+                    error={errors.confirmPassword?.message}
+                    type={showConfirmPassword ? "text" : "password"}
+                    InputProps={{
+                      endAdornment: (
+                        <IconButton
+                          onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                          edge="end"
+                          aria-label="toggle password visibility"
+                        >
+                          {showConfirmPassword ? <VisibilityOff /> : <Visibility />}
+                        </IconButton>
+                      ),
+                    }}
+                  />
+
                   </div>
                 </div>
                 <div className="flex align-center justify-between">
-                  <div className="mr-4">
-                    <InputField
+                  <div className="mr-4 bg-tranparent mt-2 text-slate-400 rounded-md">
+                  <div className="relative bg-transparent flex items-center justify-between z-10">
+                    <Controller
                       control={control}
                       name="dob"
-                      fullWidth
-                      label="Date of Birth"
-                      error={errors.dob?.message}
+                      render={({ field }) => (
+                        <DatePicker
+                          {...field}
+                          selected={field.value ? new Date(field.value) : null}
+                          onChange={(date) => {
+                            field.onChange(date);
+                          }}
+                          dateFormat="dd/MM/yyyy"
+                          placeholderText="Select Date of Birth"
+                          className="date-picker bg-transparent w-fullborder h-14 rounded-[4px] px-3 py-2 text-slate-600 pt-2 focus:border-blue-600 border border-1 border-[#8b8e9493] hover:border-black focus:border-2"
+                        />
+                      )}
                     />
+                    <CalendarTodayIcon className="absolute right-3 top-1/2 w-3 h-3transform -translate-y-1/2 text-gray-500" />
+                  </div>
+
                   </div>
                   <InputField
                     control={control}
@@ -251,6 +302,6 @@ export const SignUpModule = () => {
           </div>
         </div>
       </div>
-    </>
-  );
+    </>
+  );
 };

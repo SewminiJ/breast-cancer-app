@@ -48,3 +48,8 @@ input::-webkit-inner-spin-button {
 .nav{
   z-index: 100;
 }
+
+.date-picker::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: rgba(17, 12, 12, 0.651);
+  opacity: 1; /* Firefox */
+}
